@@ -22,6 +22,10 @@ namespace MessageCodePin.ViewModels
         }
 
         string title = string.Empty;
+        public string AppName
+        {
+            get { return "Message Code Pin"; }
+        }
         public string Title
         {
             get { return title; }

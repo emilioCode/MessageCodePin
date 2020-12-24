@@ -13,7 +13,7 @@ namespace MessageCodePin
         {
             InitializeComponent();
 
-
+           
             MainPage = new MainPage();
         }
 

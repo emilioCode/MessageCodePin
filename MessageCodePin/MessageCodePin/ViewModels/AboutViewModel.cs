@@ -11,7 +11,7 @@ namespace MessageCodePin.ViewModels
         {
             Title = "About";
 
-            OpenWebCommand = new Command(() => Device.OpenUri(new Uri("https://xamarin.com/platform")));
+            OpenWebCommand = new Command(() => Device.OpenUri(new Uri("https://www.linkedin.com/in/manuel-emilio-mendez/"/*"https://xamarin.com/platform"*/)));
         }
 
         public ICommand OpenWebCommand { get; }

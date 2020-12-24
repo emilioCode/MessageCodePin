@@ -3,8 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MessageCodePin.Views.ItemsPage"
               Title="{Binding Title}"
-             x:Name="BrowseItemsPage">
-    <ContentPage.ToolbarItems>
+             x:Name="BrowseItemsPage"
+             >
+    <!--<ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Clicked="AddItem_Clicked">
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
@@ -41,5 +42,29 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+    </StackLayout>-->
+    <StackLayout Padding="20,10,20,10" >
+        <Label Text="Digite el texto" FontSize="Medium"  HorizontalOptions="StartAndExpand" />
+        
+        <StackLayout Orientation="Horizontal">
+            <!--<Label Text="{Binding IsToggled,Source={x:Reference isEncrypting}}" FontSize="Small" HorizontalOptions="End"/>-->
+            <Label Text="Desencrypt" FontSize="Small" HorizontalOptions="End" x:Name="optionLabel"/>
+            <Switch IsToggled="False" x:Name="isEncrypting" HorizontalOptions="EndAndExpand" PropertyChanged="IsEncrypting_PropertyChanged" />
+        </StackLayout>
+
+        <Editor Text="" Placeholder="Escribe algo..." x:Name="req"/>
+        <Button Text="Process" Clicked="Button_Clicked" HorizontalOptions="FillAndExpand"/>
+
+        <StackLayout Orientation="Horizontal" >
+            <ActivityIndicator x:Name="defaultActivityIndicator"
+                                HorizontalOptions="CenterAndExpand"
+                                Color="Blue"/>
+        </StackLayout>
+
+
+        <Editor  Placeholder="(Empty)" IsEnabled="False" x:Name="res"  />
+        <Button Text="Share" Clicked="Button_Clicked_Share" x:Name="btn_Share"/>
+        <Button Text="Clear" Clicked="Button_Clicked_Clear" x:Name="btn_Clear"/>
+        <Button Text="Exit" Clicked="Button_Clicked_Close" x:Name="btn_Close"/>
     </StackLayout>
 </ContentPage>

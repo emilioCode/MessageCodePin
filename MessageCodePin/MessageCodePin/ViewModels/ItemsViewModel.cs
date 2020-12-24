@@ -17,9 +17,9 @@ namespace MessageCodePin.ViewModels
 
         public ItemsViewModel()
         {
-            Title = "Browse";
+            Title = new BaseViewModel().AppName;
             Items = new ObservableCollection<Item>();
-            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
+            LoadItemsCommand = new Command(async () => ExecuteLoadItemsCommand());
 
             MessagingCenter.Subscribe<NewItemPage, Item>(this, "AddItem", async (obj, item) =>
             {
@@ -29,30 +29,30 @@ namespace MessageCodePin.ViewModels
             });
         }
 
-        async Task ExecuteLoadItemsCommand()
+        void ExecuteLoadItemsCommand()
         {
-            if (IsBusy)
-                return;
+            //if (IsBusy)
+            //    return;
 
-            IsBusy = true;
+            //IsBusy = true;
 
-            try
-            {
-                Items.Clear();
-                var items = await DataStore.GetItemsAsync(true);
-                foreach (var item in items)
-                {
-                    Items.Add(item);
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
-            }
-            finally
-            {
-                IsBusy = false;
-            }
+            //try
+            //{
+            //    Items.Clear();
+            //    var items = await DataStore.GetItemsAsync(true);
+            //    foreach (var item in items)
+            //    {
+            //        Items.Add(item);
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    Debug.WriteLine(ex);
+            //}
+            //finally
+            //{
+            //    IsBusy = false;
+            //}
         }
     }
 }
